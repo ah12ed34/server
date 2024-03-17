@@ -1,12 +1,12 @@
-import http from 'http';
-import { Server } from 'socket.io';
-import express from 'express';
+var http = require('http');
+var Server = require('socket.io');
+var express = require('express');
 var app = express();
 
 const port = 3000;
 
 const server = http.createServer(app);
-const io = new Server(server,{
+const io =  Server(server,{
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
