@@ -25,7 +25,7 @@ app.get('/broadcast', (req, res) => {
         var b = socket.broadcast.emit(params.channel, params.message) && socket.emit(params.channel, params.message)
         returnResp = {'status': b, 'message': 'Broadcast success'}
     } else {
-        returnResp = {'status': false, 'message': 'Invalid Request'}
+        returnResp = {'status': false, 'message': 'Invalid Request','channel':params.channel,'mess':params.message}
     }
 
     return res.json(returnResp).status(200)
