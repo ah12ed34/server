@@ -22,7 +22,7 @@ app.get('/broadcast', (req, res) => {
         var socket = app.get('WebSocket')
 
         console.log('Broadcasting to', params.channel, 'with message', params.message)
-        var b = socket.broadcast.emit(params.channel, params.message) || socket.emit(params.channel, params.message)
+        var b = socket.broadcast.emit(params.channel, params.message) && socket.emit(params.channel, params.message)
         returnResp = {'status': b, 'message': 'Broadcast success'}
     } else {
         returnResp = {'status': false, 'message': 'Invalid Request'}
